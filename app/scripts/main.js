@@ -76,4 +76,16 @@
   }
 
   // Your custom JavaScript goes here
+  var app = new Vue({
+    el: '#overview',
+    data: {
+      bacons: 1
+    },
+    methods: {
+      addBacon: function () {
+        this.bacons++;
+      }
+    }
+  });
+
 })();
