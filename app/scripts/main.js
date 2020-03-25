@@ -76,16 +76,42 @@
   }
 
   // Your custom JavaScript goes here
-  var app = new Vue({
-    el: '#overview',
-    data: {
-      bacons: 1
-    },
-    methods: {
-      addBacon: function () {
-        this.bacons++;
-      }
-    }
-  });
+  if (typeof Vue !== 'undefined') {
 
+    let bacon = new Vue({
+      el: '#overview',
+      data: {
+        bacons: 1
+      },
+      methods: {
+        addBacon: function () {
+          this.bacons++;
+        }
+      }
+    });
+
+    let form = new Vue({
+      el: '#form',
+      data: {
+        countries: ["United States", "Poland"],
+        form: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          country: 'United States',
+          postal: '',
+          number: '',
+          card: '',
+          sCode: '',
+          eDate: ''
+        }
+      },
+      methods: {
+        addBacon: function () {
+          this.bacons++;
+        }
+      }
+    });
+
+  }
 })();

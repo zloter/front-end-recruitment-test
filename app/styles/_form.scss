@@ -1,0 +1,171 @@
+$grey: #d9d9d9;
+$dark-grey: #9b9b9b;
+.form-section {
+  &__header {
+    font-family: 'Source Sans Pro', sans-serif;
+    clear: both;
+    width: 100%;
+    color: black;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 18px;
+  }
+
+  &__number {
+    display: inline-block;
+    margin-left: -25px;
+    margin-right: 7px;
+    background: black;
+    color: white;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 100%;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  &__input {
+    width: 100%;
+    padding-top: 20px;
+    height: auto;
+    border-width: 0px;
+    border-bottom: 2px solid $grey;
+    border-radius: 5px;
+    margin-bottom: 19px !important;
+    font-size: 16px !important;
+    -webkit-appearance: none;
+  }
+
+  &__label {
+    position: absolute;
+    z-index: 999;
+    font-size: 12px;
+    font-weight: 900;
+    padding-top: 4px;
+    padding-left: 10px;
+    font-family: sans-serif;
+  }
+  &__visa {
+    display: block;
+    height: 23px;
+    width: 39px;
+    background-image: url("/images/touch/visa.png");
+    position: absolute;
+    right: 13px;
+    top: 14px;
+    z-index: 999;
+  }
+  &__s-code {
+    display: block;
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    line-height: 19px;
+    color: $dark-grey;
+    border: 1px solid $dark-grey;
+    border-radius: 100%;
+    z-index: 999;
+    text-align: center;
+    right: 13px;
+    top: 17px;
+  }
+  &__order {
+    background-color: white;
+    border-bottom: 2px solid $grey;
+    border-radius: 5px;
+    margin-top: 4px;
+    width: 100%;
+    color: black;
+  }
+
+  &__frame {
+    content: '';
+    display: block;
+    width: 100%;
+    border: $grey dotted 1px;
+    outline: 5px solid white;
+    padding-bottom: 33px;
+  }
+
+  &__order-header {
+    text-transform: uppercase;
+    padding: 11px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: sans-serif;
+  }
+
+  &__order-row {
+    display: block;
+    padding-left: 11px;
+    padding-bottom: 10px;
+    font-size: 12px;
+
+    &--total {
+      font-weight: 900;
+    }
+  }
+
+  &__price {
+    float: right;
+    padding-right: 14px;
+    font-family: sans-serif;
+    &--total {
+      font-weight: 700;
+      font-size: 23px;
+    }
+  }
+
+  &__separator {
+    border-bottom: $grey dashed 1px;
+    padding: 12px;
+
+    &--second {
+      padding: 7px;
+    }
+  }
+
+  &__lock {
+    font-size: 13px;
+    margin-left: 10px;
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 20px;
+    line-height: 38px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: Source Sans Pro, sans-serif;
+    background-color: #6bd400;
+    border: 0px solid #5cb204;
+    border-bottom-width: 2px;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: #5cb204;
+    }
+  }
+
+  &__cart {
+    font-size: 18px;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+  }
+  &__select-arrow {
+    display: block;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    transform: rotate(45deg);
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    z-index: 999;
+    right: 17px;
+    top: 19px;
+  }
+}
+
