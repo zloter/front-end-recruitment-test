@@ -89,18 +89,21 @@
               <div class="input-group">
                 <div class="form-section__label">First name</div>
                 <input type="text" v-model="form.firstName" class="form-section__input form-control" placeholder="Elon">
+                <div class="form-section__error">{{ errors.firstName }}</div>
               </div>
             </div>
             <div class="col-6">
               <div class="input-group">
                 <div class="form-section__label">Last name</div>
                 <input type="text" v-model="form.lastName" class="form-section__input form-control" placeholder="Musk">
+                <div class="form-section__error">{{ errors.lastName }}</div>
               </div>
             </div>
             <div class="col-12">
               <div class="input-group">
                 <div class="form-section__label">Email</div>
                 <input type="email" v-model="form.email"  class="form-section__input form-control" placeholder="elon@spacex.com">
+                <div class="form-section__error">{{ errors.email }}</div>
               </div>
             </div>
             <div class="col-6">
@@ -110,18 +113,21 @@
                 <select type="select" v-model="form.country" class="form-section__input form-control">
                   <option v-for="country in countries" :value="country">{{country}}</option>
                 </select>
+                <div class="form-section__error">{{ errors.country }}</div>
               </div>
             </div>
             <div class="col-6">
               <div class="input-group">
                 <div class="form-section__label">Postal code</div>
                 <input type="text" v-model="form.postal" class="form-section__input form-control" placeholder="10001">
+                <div class="form-section__error">{{ errors.postal }}</div>
               </div>
             </div>
             <div class="col-12">
               <div class="input-group">
                 <div class="form-section__label"  >Phone number</div>
                 <input type="text" v-model="form.number" class="form-section__input form-control" placeholder="(212) 692-93-92">
+                <div class="form-section__error">{{ errors.number }}</div>
               </div>
             </div>
           </div>
@@ -166,7 +172,8 @@
               <div class="input-group ">
                 <div class="form-section__visa"></div>
                 <div class="form-section__label"  >Credit card number</div>
-                <input type="text" v-model="form.card" class="form-section__input form-control" placeholder="000 - 0000 - 0000 - 0000">
+                <input type="text" v-model="form.card" class="form-section__input form-control" placeholder="0000 - 0000 - 0000 - 0000">
+                <div class="form-section__error">{{ errors.card }}</div>
               </div>
             </div>
             <div class="col-6">
@@ -174,12 +181,14 @@
                 <div class="form-section__s-code">?</div>
                 <div class="form-section__label">Security code</div>
                 <input type="text" v-model="form.sCode" class="form-section__input form-control" placeholder="***">
+                <div class="form-section__error">{{ errors.sCode }}</div>
               </div>
             </div>
             <div class="col-6">
               <div class="input-group">
                 <div class="form-section__label">Expiration date</div>
                 <input type="text" v-model="form.eDate" class="form-section__input form-control" placeholder="MM / YY">
+                <div class="form-section__error">{{ errors.eDate }}</div>
               </div>
             </div>
             <div class="col-12">

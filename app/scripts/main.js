@@ -104,11 +104,131 @@
           card: '',
           sCode: '',
           eDate: ''
+        },
+        errors: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          country: '',
+          postal: '',
+          number: '',
+          card: '',
+          sCode: '',
+          eDate: ''
+        },
+        possibleErrors: {
+          empty: "Field cannot be empty",
+          email: "Field must be an email ",
+          postal: "Field must be an postal code",
+          number: 'Field must be an phone number',
+          card: 'Field must be an card number (for visa start with 4)',
+          sCode: 'Field must be an security code',
+          eDate: 'Field must be an expiration date'
         }
       },
       methods: {
-        addBacon: function () {
-          this.bacons++;
+        send: function () {
+          this.clearErrors();
+          let success = this.validate();
+          if (success) {
+            this.showSuccessMessage();
+          }
+        },
+        clearErrors: function () {
+          this.errors = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            country: '',
+            postal: '',
+            number: '',
+            card: '',
+            sCode: '',
+            eDate: ''
+          }
+        },
+        validate: function () {
+          let success = true;
+          if ('' === this.form.firstName) {
+            this.errors.firstName = this.possibleErrors.empty;
+            success = false;
+          }
+          if ('' === this.form.lastName) {
+            this.errors.lastName = this.possibleErrors.empty;
+            success = false;
+          }
+          if ('' === this.form.email) {
+            this.errors.email = this.possibleErrors.empty;
+            success = false;
+          } else if (!this.validEmail(this.form.email)) {
+            this.errors.email = this.possibleErrors.email;
+            success = false;
+          }
+          if ('' === this.form.postal) {
+            this.errors.postal = this.possibleErrors.empty;
+            success = false;
+          } else if (!this.validPostalCode(this.form.postal)) {
+            this.errors.postal = this.possibleErrors.postal;
+            success = false;
+          }
+          if ('' === this.form.number) {
+            this.errors.number = this.possibleErrors.empty;
+            success = false;
+          } else if (!this.validatePhone(this.form.number)) {
+            this.errors.number = this.possibleErrors.number;
+            success = false;
+          }
+          if ('' === this.form.card) {
+            this.errors.card = this.possibleErrors.empty;
+            success = false;
+          } else if (!this.validateCard(this.form.card)) {
+            this.errors.card = this.possibleErrors.card;
+            success = false;
+          }
+          if ('' === this.form.sCode) {
+            this.errors.sCode = this.possibleErrors.empty;
+            success = false;
+          } else if (!this.validateSCode(this.form.sCode)) {
+            this.errors.sCode = this.possibleErrors.sCode;
+            success = false;
+          }
+          if ('' === this.form.eDate) {
+            this.errors.eDate = this.possibleErrors.empty;
+            success = false;
+          } else if (!this.validateEDate(this.form.eDate)) {
+            this.errors.eDate = this.possibleErrors.eDate;
+            success = false;
+          }
+          return success;
+        },
+        showSuccessMessage: function() {
+          alert("Success");
+        },
+        validEmail: function (email) {
+          let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(email);
+        },
+        validPostalCode: function(postal) {
+          let re = /^[0-9]{5}/;
+          return re.test(postal);
+        },
+        validatePhone: function(phone) {
+          let re = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+          return re.test(phone);
+        },
+        validateCard: function(card) {
+          // visa card always start with 4
+          card = card.replace(/\s/g, '').replace(/-/g, '')
+          let re = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
+          return re.test(card);
+        },
+        validateSCode: function(code) {
+          let re = /^[0-9]{3}/;
+          return re.test(code);
+        },
+        validateEDate: function(date) {
+          let re = /^(0[1-9]|1[0-2])\/\d{2}$/;
+          return re.test(date);
         }
       }
     });
